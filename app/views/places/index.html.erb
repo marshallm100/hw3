@@ -1,8 +1,8 @@
 
   <h1>Places I've Been</h1>
     <% for p in @places %>
-    <p> <%= p.name %>
-    </p>
+   <p> <a href="/places/<%=p.id%>"> <%= p.name %>
+    </a></p>
     <% end%>
   
 
