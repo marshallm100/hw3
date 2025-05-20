@@ -5,6 +5,7 @@ end
 
   def new
     @place = Place.find_by({ "id" => params["place_id"] })
+    
   end
 
   def create
@@ -14,15 +15,16 @@ end
     @entry["occurred_on"] = params["occurred_on"]
     @entry["place_id"] = params["place_id"]    
     @entry.save
-    redirect_to "/entries"
+    redirect_to "/places/#{@entry["place_id"]}"
   end
 
   def show 
    
-  @entry = Entry.find_by("id" => params["id"])
-  if @entry != nil
-    @place = Place.find_by("id" => @entry.place_id)
-  end 
+    if @entry != nil
+      @place = Place.find_by("id" => @entry.place_id)
+    end 
+
+    @entry = Entry.find_by("id" => params["id"])
   end 
 
   

@@ -1,16 +1,14 @@
-]<h1><%=@place.name%></h1>
-<h2>Entry Details:</h2>
-<% if @entry == nil%>
+]<h1><%=@place["name"]%></h1>
 
-  <p> There are no entries </p>
-<% else %>
-<ul>
-  <li>Title: <%= @entry.title %></li>
-  <li>Description: <%= @entry.description %></li>
-  <li>Date: <%= @entry.occurred_on %></li>
-</ul>
-<% end %>
+<h2>Entry Details:</h2>
+    <% for e in @entries %>
+      <ul>
+        <li>Title: <%= e.title %></li>
+        <li>Description: <%= e.description %></li>
+        <li>Date: <%= e.occurred_on %></li>
+      </ul>
+    <% end %>
   
-  <a href="/entries/new">New Entry</a>
+  <a href="/places/<%= @place["id"]%>/entries/new">New Entry</a>
 
 <p><a href="/places">Back to All Places</a></p>

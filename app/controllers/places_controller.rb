@@ -1,8 +1,8 @@
 class PlacesController < ApplicationController
 
-def index
-  @places = Place.all
-end
+  def index
+    @places = Place.all
+  end
 
 
   def new
@@ -10,9 +10,9 @@ end
   end
 
   def create 
-    @places = Place.new
-    @places["name"] = params["name"]
-    @places.save
+    @place = Place.new
+    @place["name"] = params["name"]
+    @place.save
     redirect_to "/places"
   end
 
